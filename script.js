@@ -1,6 +1,3 @@
-let boolean = true
-var i = 0
-var n = 0; 
 let questions = [{
     n: 0,
     question: "What is capital of India?",
@@ -90,67 +87,28 @@ let questions = [{
         { text: "fv", correct: false }
     ]
 }]
-function game (n) {
-    n = 0 + i;
-    document.getElementById("question").innerText = questions[n].question;
-    document.getElementById("btn1").innerHTML = questions[n].answers[0].text;
-    document.getElementById("btn2").innerHTML = questions[n].answers[1].text;
-    document.getElementById("btn3").innerHTML = questions[n].answers[2].text;
-    document.getElementById("btn4").innerHTML = questions[n].answers[3].text;
-    let option1 = questions[n].answers[0].correct;
-    let option2 = questions[n].answers[1].correct;
-    let option3 = questions[n].answers[2].correct;
-    let option4 = questions[n].answers[3].correct;
-    document.getElementById("btn1").addEventListener ("click", () => {
-        if (option1 == true) {
-            document.getElementById("btn1").style.backgroundColor = 'green';
-            boolean = false;
-        } else {
-            document.getElementById("btn1").style.backgroundColor = 'red';
-            boolean = false;
-        }})
-    document.getElementById("btn2").addEventListener ("click", () => {
-        if (option2 == true) {
-            document.getElementById("btn2").style.backgroundColor = 'green';
-            boolean = false;
-        } else {
-            document.getElementById("btn2").style.backgroundColor = 'red'
-            boolean = false;
-        }})
-    document.getElementById("btn3").addEventListener ("click", () => {
-        if (option3 == true) {
-            document.getElementById("btn3").style.backgroundColor = 'green';
-            boolean = false;
-            delay()
-        } else {
-            document.getElementById("btn3").style.backgroundColor = 'red'
-            boolean = false;
-            delay()
-        }})
-    document.getElementById("btn4").addEventListener ("click", () => {
-        if (option4 == true) {
-            document.getElementById("btn4").style.backgroundColor = 'green';
-            boolean = false;
-            delay()
-        } else {
-            document.getElementById("btn4").style.backgroundColor = 'red';
-            boolean = false;
-            delay()
-        }})
-} 
-game()
-function delay () {
-    if (boolean = false) {
-    setInterval(nextQuestion, 1500)
-    }
+let startButton = document.getElementById('nxt');
+let button1 = document.getElementById('btn1');
+let button2 = document.getElementById('btn2');
+let button3 = document.getElementById('btn3');
+let button4 = document.getElementById('btn4');
+let questionAsked = document.getElementById('question');
+
+function quest(n) {
+    n = 0
+    questionAsked.innerText = questions[n].question;   
 }
-function nextQuestion() {
-    if (n < questions.length) {
-        i++;
-        game();
-        document.getElementById("btn1").style.backgroundColor = '';
-        document.getElementById("btn2").style.backgroundColor = '';
-        document.getElementById("btn3").style.backgroundColor = '';
-        document.getElementById("btn4").style.backgroundColor = '';
-    }    
-} 
+function options () {
+    button1.innerText = questions[0].answers[0].text
+    button2.innerText = questions[0].answers[1].text
+    button3.innerText = questions[0].answers[2].text
+    button4.innerText = questions[0].answers[3].text
+    button1.addEventListener("click", () => {
+        if (questions[0].answers[0].correct == true) {
+            button1.style.backgroundColor = 'green';
+        } else {
+            button1.style.backgroundColor = 'red';
+        }})
+    }
+options()
+quest()
