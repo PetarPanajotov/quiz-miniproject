@@ -44,3 +44,16 @@ body {
     border-color: black;
     
 }
+.next {
+    border: 3px solid hsl(200,  100%, 30%);
+    background-color: blue;
+    color: white;
+    border-radius: 3px;
+    padding: 8px 14px;
+    outline: none;
+}
+.next:hover {
+    color: black;
+    background-color: yellow;
+    border-color: black;
+}
