@@ -1,3 +1,5 @@
+let index = 0;
+let num = 0;
 let questions = [{
     n: 0,
     question: "What is capital of India?",
@@ -87,28 +89,57 @@ let questions = [{
         { text: "fv", correct: false }
     ]
 }]
-let startButton = document.getElementById('nxt');
 let button1 = document.getElementById('btn1');
 let button2 = document.getElementById('btn2');
 let button3 = document.getElementById('btn3');
 let button4 = document.getElementById('btn4');
 let questionAsked = document.getElementById('question');
+options(num);
 
-function quest(n) {
-    n = 0
-    questionAsked.innerText = questions[n].question;   
-}
-function options () {
-    button1.innerText = questions[0].answers[0].text
-    button2.innerText = questions[0].answers[1].text
-    button3.innerText = questions[0].answers[2].text
-    button4.innerText = questions[0].answers[3].text
+function options (num) {
+    questionAsked.innerText = questions[num].question;   
+    button1.innerText = questions[num].answers[0].text
+    button2.innerText = questions[num].answers[1].text
+    button3.innerText = questions[num].answers[2].text
+    button4.innerText = questions[num].answers[3].text
     button1.addEventListener("click", () => {
-        if (questions[0].answers[0].correct == true) {
+        if (questions[num].answers[0].correct == true) {
             button1.style.backgroundColor = 'green';
         } else {
             button1.style.backgroundColor = 'red';
-        }})
+        }
+        return})
+        button2.addEventListener("click", () => {
+            if (questions[num].answers[1].correct == true) {
+                button2.style.backgroundColor = 'green';
+            } else {
+            button2.style.backgroundColor = 'red';
+        }
+        return})
+        button3.addEventListener("click", () => {
+            if (questions[num].answers[2].correct == true) {
+                button3.style.backgroundColor = 'green';
+            } else {
+                button3.style.backgroundColor = 'red';
+            }
+            return})
+            button4.addEventListener("click", () => {
+                if (questions[num].answers[3].correct == true) {
+                    button4.style.backgroundColor = 'green';
+                } else {
+                    button4.style.backgroundColor = 'red';
+                }
+                return})
+            }
+            nextButton()
+function nextButton () {
+    let nextQuestion = document.getElementById('nxt');
+    nextQuestion.addEventListener("click", () => {
+    num++;
+    button1.style.backgroundColor = '';
+    button2.style.backgroundColor = '';
+    button3.style.backgroundColor = '';
+    button4.style.backgroundColor = '';
+    options(num)})
     }
-options()
-quest()
+                
