@@ -102,7 +102,7 @@ function options (num) {
     button2.innerText = questions[num].answers[1].text
     button3.innerText = questions[num].answers[2].text
     button4.innerText = questions[num].answers[3].text
-    button1.addEventListener("click", () => {
+        button1.addEventListener("click", () => {
         if (questions[num].answers[0].correct == true) {
             button1.style.backgroundColor = 'green';
         } else {
@@ -123,13 +123,13 @@ function options (num) {
                 button3.style.backgroundColor = 'red';
             }
             return})
-            button4.addEventListener("click", () => {
-                if (questions[num].answers[3].correct == true) {
-                    button4.style.backgroundColor = 'green';
-                } else {
-                    button4.style.backgroundColor = 'red';
-                }
-                return})
+        button4.addEventListener("click", () => {
+            if (questions[num].answers[3].correct == true) {
+                button4.style.backgroundColor = 'green';
+            } else {
+            button4.style.backgroundColor = 'red';
+            }
+            return})
             }
             nextButton()
 function nextButton () {
@@ -141,5 +141,4 @@ function nextButton () {
     button3.style.backgroundColor = '';
     button4.style.backgroundColor = '';
     options(num)})
-    }
-                
+}
